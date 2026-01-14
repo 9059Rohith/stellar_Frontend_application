@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Zap, Pause, Play, Award } from 'lucide-react';
+import { Pause, Play, Award } from 'lucide-react';
 import { useVoice } from '../contexts/VoiceContext';
+import blueCrystal from '/assets/blue_crystal.png';
 
 const FocusTrainer = () => {
   const { speak, registerCommand } = useVoice();
@@ -121,7 +122,7 @@ const FocusTrainer = () => {
             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
             className="inline-block mb-4"
           >
-            <Zap className="w-16 h-16 text-yellow-400" />
+            <img src={blueCrystal} alt="Crystal" className="w-20 h-20 object-contain drop-shadow-2xl" />
           </motion.div>
           <h1 className="text-5xl font-bold mb-4 text-white font-friendly">
             ☄️ Focus Trainer
@@ -242,13 +243,13 @@ const FocusTrainer = () => {
               
               {/* Comet core */}
               <motion.div
-                className="relative w-8 h-8 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500"
+                className="relative"
                 animate={{
                   scale: [1, 1.3, 1],
-                  boxShadow: [
-                    '0 0 20px rgba(255, 200, 0, 0.8)',
-                    '0 0 40px rgba(255, 200, 0, 1)',
-                    '0 0 20px rgba(255, 200, 0, 0.8)'
+                  filter: [
+                    'brightness(1) drop-shadow(0 0 20px rgba(0, 180, 216, 0.8))',
+                    'brightness(1.5) drop-shadow(0 0 40px rgba(0, 180, 216, 1))',
+                    'brightness(1) drop-shadow(0 0 20px rgba(0, 180, 216, 0.8))'
                   ]
                 }}
                 transition={{
@@ -256,7 +257,7 @@ const FocusTrainer = () => {
                   repeat: Infinity
                 }}
               >
-                <div className="absolute inset-0 rounded-full bg-white/50" />
+                <img src={blueCrystal} alt="Comet" className="w-12 h-12 object-contain" />
               </motion.div>
             </motion.div>
           )}

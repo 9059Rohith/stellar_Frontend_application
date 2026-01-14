@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useVoice } from '../contexts/VoiceContext';
+import superCrystal from '/assets/super_main_crystal.png';
 
 const SensoryNebula = () => {
   const { speak } = useVoice();
@@ -208,11 +209,18 @@ const SensoryNebula = () => {
           className="text-center"
         >
           <motion.div
-            className="w-32 h-32 rounded-full border-4 border-white/40 mx-auto mb-6"
-            style={{
-              background: 'radial-gradient(circle, rgba(157, 78, 221, 0.3), transparent)'
+            className="mx-auto mb-6 relative"
+            animate={{ 
+              filter: ['brightness(1)', 'brightness(1.5)', 'brightness(1)'],
+              rotate: [0, 360]
             }}
-          />
+            transition={{ 
+              filter: { duration: 4, repeat: Infinity },
+              rotate: { duration: 20, repeat: Infinity, ease: "linear" }
+            }}
+          >
+            <img src={superCrystal} alt="Breathing Crystal" className="w-40 h-40 object-contain drop-shadow-2xl" />
+          </motion.div>
           <p className="text-3xl text-white/90 font-friendly">
             {getBreathingText()}
           </p>

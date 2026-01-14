@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Rocket, Menu, X, Moon, Mic, MicOff, 
+  Menu, X, Mic, MicOff, 
   Music, Music2, Settings, Volume2 
 } from 'lucide-react';
 import { useVoice } from '../contexts/VoiceContext';
+import rocketLogo from '/assets/blue_rocket_logo_stellar.png';
+import moonIcon from '/assets/moon.png';
 
 const Navbar = ({ currentPage, onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -100,7 +102,7 @@ const Navbar = ({ currentPage, onNavigate }) => {
             className="flex items-center space-x-2 hover:scale-105 transition-transform focus:outline-none"
             style={{ minWidth: '48px', minHeight: '48px' }}
           >
-            <Rocket className="w-8 h-8 text-cosmic-blue" />
+            <img src={rocketLogo} alt="StellarStep" className="w-10 h-10 object-contain" />
             <span className="hidden md:block text-xl font-bold text-white font-friendly">
               StellarStep
             </span>
@@ -119,11 +121,11 @@ const Navbar = ({ currentPage, onNavigate }) => {
               whileTap={{ scale: 0.95 }}
               onClick={handleSafetyMoon}
               onMouseEnter={() => speak('Safety Moon - Go to calm space')}
-              className="p-3 rounded-full bg-cosmic-purple/20 hover:bg-cosmic-purple/40 transition-colors"
+              className="p-2 rounded-full bg-cosmic-purple/20 hover:bg-cosmic-purple/40 transition-colors"
               style={{ minWidth: '48px', minHeight: '48px' }}
               aria-label="Safety Moon"
             >
-              <Moon className="w-6 h-6 text-yellow-300" />
+              <img src={moonIcon} alt="Safety Moon" className="w-8 h-8 object-contain" />
             </motion.button>
 
             {/* Voice Toggle */}

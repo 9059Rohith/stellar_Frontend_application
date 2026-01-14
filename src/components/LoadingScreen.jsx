@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Rocket } from 'lucide-react';
+import rocketLogo from '/assets/blue_rocket_logo_stellar.png';
 
 const LoadingScreen = () => {
   return (
@@ -23,7 +23,7 @@ const LoadingScreen = () => {
           }}
           className="mb-8 inline-block"
         >
-          <Rocket className="w-24 h-24 text-cosmic-blue" />
+          <img src={rocketLogo} alt="StellarStep Rocket" className="w-32 h-32 object-contain drop-shadow-2xl" />
         </motion.div>
         
         <h1 className="text-5xl font-bold mb-4 text-white font-friendly">

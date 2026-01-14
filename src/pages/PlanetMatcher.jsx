@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Star, Award, RotateCcw } from 'lucide-react';
+import { Award, RotateCcw } from 'lucide-react';
 import { useVoice } from '../contexts/VoiceContext';
+import saturn from '/assets/saturn.png';
+import uranus from '/assets/uranus.png';
+import earth from '/assets/earth.png';
+import moon from '/assets/moon.png';
+import star1 from '/assets/star1.png';
 
 const PlanetMatcher = () => {
   const { speak, registerCommand } = useVoice();
 
   const planets = [
-    { id: 1, color: '#9d4edd', name: 'Purple Planet', emoji: '🟣' },
-    { id: 2, color: '#00b4d8', name: 'Blue Planet', emoji: '🔵' },
-    { id: 3, color: '#ffd60a', name: 'Yellow Planet', emoji: '🟡' },
-    { id: 4, color: '#06ffa5', name: 'Green Planet', emoji: '🟢' },
+    { id: 1, color: '#9d4edd', name: 'Saturn', image: saturn },
+    { id: 2, color: '#00b4d8', name: 'Uranus', image: uranus },
+    { id: 3, color: '#ffd60a', name: 'Earth', image: earth },
+    { id: 4, color: '#06ffa5', name: 'Moon', image: moon },
   ];
 
   const [stars, setStars] = useState([]);
@@ -133,11 +138,7 @@ const PlanetMatcher = () => {
                     minHeight: '80px'
                   }}
                 >
-                  <Star 
-                    className="w-12 h-12" 
-                    fill={star.color}
-                    color={star.color}
-                  />
+                  <img src={star1} alt="Star" className="w-12 h-12 object-contain drop-shadow-lg" />
                   <span className="text-xl font-friendly text-white">
                     {star.name} Star
                   </span>
@@ -164,7 +165,7 @@ const PlanetMatcher = () => {
                 }}
               >
                 <div className="flex items-center space-x-4">
-                  <span className="text-5xl">{planet.emoji}</span>
+                  <img src={planet.image} alt={planet.name} className="w-16 h-16 object-contain drop-shadow-lg" />
                   <span className="text-xl font-friendly text-white">
                     {planet.name}
                   </span>
@@ -175,11 +176,7 @@ const PlanetMatcher = () => {
                     initial={{ scale: 0, rotate: -180 }}
                     animate={{ scale: 1, rotate: 0 }}
                   >
-                    <Star 
-                      className="w-10 h-10" 
-                      fill={planet.color}
-                      color={planet.color}
-                    />
+                    <img src={star1} alt="Match" className="w-12 h-12 object-contain drop-shadow-lg" />
                   </motion.div>
                 )}
               </motion.div>

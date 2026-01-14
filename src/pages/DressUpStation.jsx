@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import { useVoice } from '../contexts/VoiceContext';
+import rocketIcon from '/assets/rocket.png';
 
 const DressUpStation = () => {
   const { speak, registerCommand } = useVoice();
@@ -91,11 +92,14 @@ const DressUpStation = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <motion.div
-            animate={{ rotate: [0, 10, -10, 0] }}
+            animate={{ 
+              y: [0, -10, 0],
+              rotate: [0, 10, -10, 0] 
+            }}
             transition={{ duration: 2, repeat: Infinity }}
             className="inline-block mb-4"
           >
-            <Sparkles className="w-16 h-16 text-cosmic-pink" />
+            <img src={rocketIcon} alt="Rocket" className="w-20 h-20 object-contain drop-shadow-2xl" />
           </motion.div>
           <h1 className="text-5xl font-bold mb-4 text-white font-friendly">
             👨‍🚀 Dress-Up Station

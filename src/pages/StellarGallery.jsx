@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Award, Star, Trophy, Sparkles, Crown, Rocket } from 'lucide-react';
+import { Award, Trophy, Crown } from 'lucide-react';
 import { useVoice } from '../contexts/VoiceContext';
+import purpleCrystal from '/assets/purple crystal.png';
+import blueCrystal from '/assets/blue_crystal.png';
+import greenCrystal from '/assets/green_crystal.png';
+import star1 from '/assets/star1.png';
+import rocketIcon from '/assets/rocket.png';
 
 const StellarGallery = () => {
   const { speak } = useVoice();
@@ -11,7 +16,8 @@ const StellarGallery = () => {
     { 
       id: 'first-mission', 
       name: 'First Steps', 
-      icon: Rocket, 
+      icon: rocketIcon, 
+      isImage: true,
       description: 'Completed your first mission!',
       color: 'from-blue-500 to-cyan-500',
       requirement: 'Complete any mission'
@@ -19,7 +25,8 @@ const StellarGallery = () => {
     { 
       id: 'planet-master', 
       name: 'Planet Master', 
-      icon: Star, 
+      icon: star1, 
+      isImage: true,
       description: 'Matched all the planets!',
       color: 'from-purple-500 to-pink-500',
       requirement: 'Complete Planet Matcher'
@@ -27,7 +34,8 @@ const StellarGallery = () => {
     { 
       id: 'emotion-expert', 
       name: 'Emotion Expert', 
-      icon: Sparkles, 
+      icon: blueCrystal, 
+      isImage: true,
       description: 'Learned about all feelings!',
       color: 'from-green-500 to-teal-500',
       requirement: 'Try all emotions in Alien Emotions'
@@ -35,7 +43,8 @@ const StellarGallery = () => {
     { 
       id: 'calm-explorer', 
       name: 'Calm Explorer', 
-      icon: Star, 
+      icon: purpleCrystal, 
+      isImage: true,
       description: 'Visited the Sensory Nebula!',
       color: 'from-cyan-500 to-blue-500',
       requirement: 'Visit Sensory Nebula'
@@ -44,6 +53,7 @@ const StellarGallery = () => {
       id: 'space-scholar', 
       name: 'Space Scholar', 
       icon: Award, 
+      isImage: false,
       description: 'Read 10 space facts!',
       color: 'from-indigo-500 to-purple-500',
       requirement: 'Read 10 facts in Space School'
@@ -52,6 +62,7 @@ const StellarGallery = () => {
       id: 'focus-champion', 
       name: 'Focus Champion', 
       icon: Trophy, 
+      isImage: false,
       description: 'Followed the comet perfectly!',
       color: 'from-red-500 to-orange-500',
       requirement: 'Complete Focus Trainer'
@@ -59,7 +70,8 @@ const StellarGallery = () => {
     { 
       id: 'style-star', 
       name: 'Style Star', 
-      icon: Crown, 
+      icon: greenCrystal, 
+      isImage: true,
       description: 'Designed an awesome space suit!',
       color: 'from-pink-500 to-purple-500',
       requirement: 'Customize avatar in Dress-Up Station'
@@ -68,6 +80,7 @@ const StellarGallery = () => {
       id: 'time-keeper', 
       name: 'Time Keeper', 
       icon: Award, 
+      isImage: false,
       description: 'Organized your daily schedule!',
       color: 'from-teal-500 to-green-500',
       requirement: 'Complete Visual Timeline'
@@ -76,6 +89,7 @@ const StellarGallery = () => {
       id: 'mission-master', 
       name: 'Mission Master', 
       icon: Crown, 
+      isImage: false,
       description: 'Completed all missions!',
       color: 'from-yellow-500 to-orange-500',
       requirement: 'Complete all 8 missions'
@@ -177,7 +191,11 @@ const StellarGallery = () => {
                     }}
                     className="mb-6"
                   >
-                    <Icon className="w-20 h-20 mx-auto text-white drop-shadow-lg" />
+                    {badge.isImage ? (
+                      <img src={Icon} alt={badge.name} className="w-24 h-24 mx-auto object-contain drop-shadow-2xl" />
+                    ) : (
+                      <Icon className="w-20 h-20 mx-auto text-white drop-shadow-lg" />
+                    )}
                   </motion.div>
 
                   <h3 className="text-2xl font-bold mb-3 text-white font-friendly">

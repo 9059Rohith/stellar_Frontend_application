@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, Check, Plus, Trash2 } from 'lucide-react';
+import { Clock, Check, Plus, Trash2 } from 'lucide-react';
 import { useVoice } from '../contexts/VoiceContext';
+import saturn from '/assets/saturn.png';
 
 const VisualTimeline = () => {
   const { speak, registerCommand } = useVoice();
@@ -128,11 +129,17 @@ const VisualTimeline = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <motion.div
-            animate={{ rotate: [0, 360] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            animate={{ 
+              rotate: [0, 360],
+              scale: [1, 1.1, 1]
+            }}
+            transition={{ 
+              rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+              scale: { duration: 2, repeat: Infinity }
+            }}
             className="inline-block mb-4"
           >
-            <Calendar className="w-16 h-16 text-cosmic-blue" />
+            <img src={saturn} alt="Saturn" className="w-24 h-24 object-contain drop-shadow-2xl" />
           </motion.div>
           <h1 className="text-5xl font-bold mb-4 text-white font-friendly">
             📅 Visual Timeline

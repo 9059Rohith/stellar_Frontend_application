@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Rocket, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { useVoice } from '../contexts/VoiceContext';
+import rocketLogo from '/assets/blue_rocket_logo_stellar.png';
+import star1 from '/assets/star1.png';
 
 const LandingPage = ({ onStart }) => {
   const { speak } = useVoice();
@@ -59,7 +61,7 @@ const LandingPage = ({ onStart }) => {
           }}
           className="mb-8 inline-block"
         >
-          <Rocket className="w-32 h-32 text-cosmic-blue drop-shadow-lg" />
+          <img src={rocketLogo} alt="StellarStep Rocket" className="w-40 h-40 object-contain drop-shadow-2xl" />
         </motion.div>
 
         {/* Title */}
