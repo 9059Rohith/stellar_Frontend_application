@@ -33,7 +33,8 @@ const Navbar = ({ currentPage, onNavigate }) => {
     'space-school': 'Space School',
     'focus-trainer': 'Focus Trainer',
     'dress-up-station': 'Dress-Up Station',
-    'visual-timeline': 'Visual Timeline'
+    'visual-timeline': 'Visual Timeline',
+    'space-lab': 'Space Lab'
   };
 
   const missions = [
@@ -45,7 +46,8 @@ const Navbar = ({ currentPage, onNavigate }) => {
     { id: 'space-school', name: 'Space School', icon: '📚' },
     { id: 'focus-trainer', name: 'Focus Trainer', icon: '☄️' },
     { id: 'dress-up-station', name: 'Dress-Up Station', icon: '👨‍🚀' },
-    { id: 'visual-timeline', name: 'Visual Timeline', icon: '📅' }
+    { id: 'visual-timeline', name: 'Visual Timeline', icon: '📅' },
+    { id: 'space-lab', name: 'Space Lab', icon: '🔬' }
   ];
 
   const handleNavigation = (pageId, pageName) => {

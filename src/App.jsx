@@ -14,6 +14,7 @@ import SpaceSchool from './pages/SpaceSchool';
 import FocusTrainer from './pages/FocusTrainer';
 import DressUpStation from './pages/DressUpStation';
 import VisualTimeline from './pages/VisualTimeline';
+import SpaceLab from './pages/SpaceLab';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('loading');
@@ -50,7 +51,8 @@ function App() {
       'space-school': <SpaceSchool />,
       'focus-trainer': <FocusTrainer />,
       'dress-up-station': <DressUpStation />,
-      'visual-timeline': <VisualTimeline />
+      'visual-timeline': <VisualTimeline />,
+      'space-lab': <SpaceLab />
     };
 
     return (

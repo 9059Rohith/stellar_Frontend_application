@@ -176,7 +176,9 @@ export const VoiceProvider = ({ children, onNavigate, currentPage }) => {
       'dress up': 'dress-up-station',
       'visual timeline': 'visual-timeline',
       'timeline': 'visual-timeline',
-      'schedule': 'visual-timeline'
+      'schedule': 'visual-timeline',
+      'space lab': 'space-lab',
+      'lab': 'space-lab'
     };
 
     // Check for navigation commands
@@ -190,7 +192,7 @@ export const VoiceProvider = ({ children, onNavigate, currentPage }) => {
 
     // Help command
     if (cmd.includes('help') || cmd.includes('what can i do')) {
-      const helpText = 'You can say: go to mission hub, planet matcher, alien emotions, sensory nebula, stellar gallery, space school, focus trainer, dress up station, or visual timeline. Say calm down to relax, or repeat to hear again.';
+      const helpText = 'You can say: go to mission hub, planet matcher, alien emotions, sensory nebula, stellar gallery, space school, focus trainer, dress up station, visual timeline, or space lab. Say calm down to relax, or repeat to hear again.';
       speak(helpText);
       return;
     }

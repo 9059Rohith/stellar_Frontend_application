@@ -1,0 +1,474 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{fancyhdr}
+
+% Header and Footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Lab Evaluation-1}
+\lhead{React JS Application}
+\rfoot{Page \thepage}
+
+% Code listing style
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!10}
+}
+
+\begin{document}
+
+% Title Page
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    
+    {\Huge\bfseries Lab Evaluation-1\par}
+    \vspace{0.8cm}
+    {\Large Date: 5/2/2026\par}
+    \vspace{2cm}
+    
+    {\LARGE\textbf{React JS Application Development}\par}
+    \vspace{0.5cm}
+    {\Large StellarStep - The Sensory Space Odyssey™\par}
+    \vspace{3cm}
+    
+    {\Large \textbf{Name:} Rohith Kumar D\par}
+    \vspace{0.3cm}
+    {\Large \textbf{Roll No:} cb.sc.u4cse23018\par}
+    \vspace{0.3cm}
+    {\Large \textbf{Section:} CSE-A\par}
+    \vspace{3cm}
+    
+    {\large\textbf{Total Marks: 50}\par}
+    \vspace{0.3cm}
+    {\normalsize 60\% weightage for earlier submission and 40\% for today's evaluation\par}
+    
+    \vfill
+    
+\end{titlepage}
+
+\newpage
+
+% Main Content
+\section{About the Use Case}
+
+\textbf{StellarStep --- The Sensory Space Odyssey\texttrademark} is a neuro-inclusive web application designed to support children with Autism Spectrum Disorder (ASD) through a sensory-friendly, space-themed learning environment. It transforms real-world therapeutic practices into interactive digital experiences usable at home or in classrooms. Luna, age 7, feels overwhelmed by classroom noise, lighting, and social cues. Therapy helps but is costly and limited. StellarStep provides a daily accessible tool to help her stay calm, recognize emotions, and improve focus in an engaging way.
+
+The platform offers calming nebula environments with soft animations, gentle colors, and soothing motion to help children regulate anxiety before learning. Using the Web Speech API, children can give voice commands like ``Start Mission'' or ``Help,'' encouraging communication and confidence. Emotion-matching games, constellation puzzles, and space-themed lessons enhance emotional recognition, memory, and academic skills through play. Timed missions such as asteroid navigation improve attention span and concentration using CBT-inspired exercises. Dashboards visualize progress for parents and therapists, with personalization for sensory levels and difficulty.
+
+Built with React 18.2.0, TailwindCSS, Framer Motion, Context API, and Web Speech API for responsive, voice-enabled interaction. The application demonstrates comprehensive React concepts including Function and Class Components, Hooks (useState, useEffect, useContext, useReducer, useMemo, useCallback), state-based routing, event handling, forms with validation, and PropTypes for type safety.
+
+
+\section{GitHub Repository}
+\textbf{Repository URL:} 
+\url{https://github.com/9059Rohith/stellar_frontend_application}
+
+
+
+\newpage
+
+\section{React JS Concepts Implementation}
+
+Complete table documenting all React concepts implemented in the StellarStep application:
+
+\vspace{0.5cm}
+
+\begin{longtable}{|p{3cm}|p{6.5cm}|p{5cm}|}
+\hline
+\textbf{Concept} & \textbf{Code Proof / Location} & \textbf{Screenshot} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{Concept} & \textbf{Code Proof / Location} & \textbf{Screenshot} \\
+\hline
+\endhead
+
+\textbf{Function Component} & 
+\textbf{File:} \texttt{SpaceLab.jsx} (Line 404)
+\newline\newline
+\begin{lstlisting}[language=JavaScript]
+const MissionHub = ({ onNavigate }) => {
+  const { speak } = useVoice();
+  
+  const missions = [
+    { id: 'planet-matcher', 
+      name: 'Planet Matcher' },
+    // ... more missions
+  ];
+  
+  useEffect(() => {
+    speak('Welcome to Mission Hub!');
+  }, [speak]);
+  
+  const handleMissionClick = (mission) => {
+    speak(`Launching ${mission.name}`);
+    onNavigate(mission.id);
+  };
+  
+  return (/* JSX */);
+};
+\end{lstlisting}
+\textbf{File:} MissionHub.jsx (Line 13)
+& 
+\vspace{0.2cm}
+\includegraphics[width=4.8cm,height=6.5cm,keepaspectratio]{figure-1.png}
+\newline
+\textit{Figure 1: MissionHub Function Component}
+\\
+\hline
+
+\textbf{Class Component} & 
+\textbf{File:} \texttt{SpaceLab.jsx} (Lines 24-332)
+\newline\newline
+\begin{lstlisting}[language=JavaScript]
+class AstronautRegistrationForm 
+  extends React.Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '', age: '',
+      rank: 'cadet', skills: [],
+      bio: '', errors: {}
+    };
+  }
+  
+  componentDidMount() {
+    console.log('Form mounted');
+  }
+  
+  componentDidUpdate(prevProps, 
+    prevState) {
+    // Handle updates
+  }
+  
+  componentWillUnmount() {
+    console.log('Unmounting');
+  }
+  
+  render() {
+    return (/* JSX */);
+  }
+}
+\end{lstlisting}
+& 
+\vspace{0.2cm}
+\includegraphics[width=4.8cm,height=6.5cm,keepaspectratio]{figure-2.png}
+\newline
+\textit{Figure 2: Class Component}
+\\
+\hline
+
+\textbf{Event Handling} & 
+\textbf{File:} \texttt{AlienEmotions.jsx}
+\newline\newline
+\begin{lstlisting}[language=JavaScript]
+const handleEmotionSelect = 
+  (emotion) => {
+  setSelectedFeatures({
+    eyes: emotion.id,
+    mouth: emotion.id,
+    color: selectedFeatures.color
+  });
+  speak(`${emotion.name}! 
+    ${emotion.description}`);
+};
+
+const handleColorChange = (color) => {
+  setSelectedFeatures(prev => ({
+    ...prev, color: color.value
+  }));
+  speak(`Changed to ${color.name}`);
+};
+
+// onClick events
+<button
+  onClick={() => 
+    handleEmotionSelect(emotion)}
+>
+  {emotion.name}
+</button>
+
+<div onClick={() => 
+  handleColorChange(color)}>
+  {color.name}
+</div>
+\end{lstlisting}
+\textbf{File:} AlienEmotions.jsx
+& 
+\vspace{0.2cm}
+\includegraphics[width=4.8cm,height=6.5cm,keepaspectratio]{figure-3.png}
+\newline
+\textit{Figure 3: Event Handlers in AlienEmotions}
+\\
+\hline
+
+\textbf{State Management} & 
+\textbf{File:} \texttt{AlienEmotions.jsx}
+\newline\newline
+\textbf{useState Hook:}
+\begin{lstlisting}[language=JavaScript]
+const [selectedFeatures, 
+  setSelectedFeatures] = useState({
+  eyes: 'happy',
+  mouth: 'happy',
+  color: '#9d4edd'
+});
+
+const emotions = [
+  { id: 'happy', name: 'Happy', 
+    icon: Smile },
+  { id: 'sad', name: 'Sad', 
+    icon: Frown },
+  { id: 'surprised', 
+    name: 'Surprised' },
+  { id: 'calm', name: 'Calm' }
+];
+
+const handleEmotionSelect = 
+  (emotion) => {
+  setSelectedFeatures({
+    eyes: emotion.id,
+    mouth: emotion.id,
+    color: selectedFeatures.color
+  });
+};
+
+// State updates based on user
+// interaction with emotions
+\end{lstlisting}
+\textbf{Also uses:} useEffect, registerCommand
+& 
+\vspace{0.2cm}
+\includegraphics[width=4.8cm,height=6.5cm,keepaspectratio]{figure-4.png}
+\newline
+\textit{Figure 4: State Management}
+\\
+\hline
+
+\textbf{Stateless Component} & 
+\textbf{File:} \texttt{LoadingScreen.jsx}
+\newline\newline
+\textbf{Pure Component - No State:}
+\begin{lstlisting}[language=JavaScript]
+import React from 'react';
+import { motion } from 'framer-motion';
+import rocketLogo from 
+  '/assets/blue_rocket_logo.png';
+
+const LoadingScreen = () => {
+  return (
+    <div className="min-h-screen 
+      flex items-center">
+      <motion.div
+        animate={{ 
+          y: [0, -20, 0],
+          rotate: [0, 5, -5, 0]
+        }}
+        transition={{ 
+          duration: 2,
+          repeat: Infinity
+        }}
+      >
+        <img src={rocketLogo} 
+          alt="StellarStep" />
+      </motion.div>
+      
+      <h1>StellarStep</h1>
+      <p>Loading your mission...</p>
+    </div>
+  );
+};
+
+export default LoadingScreen;
+\end{lstlisting}
+\textbf{Features:} No state, no props,
+pure presentation
+& 
+\vspace{0.2cm}
+\includegraphics[width=4.8cm,height=6.5cm,keepaspectratio]{figure-5.png}
+\newline
+\textit{Figure 5: Stateless Component}
+\\
+\hline
+
+\textbf{Forms} & 
+\textbf{File:} \texttt{VisualTimeline.jsx}
+\newline\newline
+\textbf{Add Activity Form:}
+\begin{lstlisting}[language=JavaScript]
+const [newActivity, setNewActivity] 
+  = useState({ 
+    time: '', 
+    activity: '', 
+    emoji: '⭐' 
+  });
+
+const handleAddActivity = () => {
+  if (newActivity.time && 
+      newActivity.activity) {
+    setActivities(prev => [
+      ...prev, 
+      { ...newActivity, 
+        id: Date.now() }
+    ]);
+    setNewActivity({ 
+      time: '', 
+      activity: '', 
+      emoji: '⭐' 
+    });
+    speak('Activity added!');
+  }
+};
+
+// Form JSX
+<input type="time" 
+  value={newActivity.time}
+  onChange={(e) => setNewActivity(
+    prev => ({ 
+      ...prev, 
+      time: e.target.value 
+    }))}
+/>
+
+<input type="text"
+  placeholder="Activity name"
+  value={newActivity.activity}
+  onChange={(e) => setNewActivity(
+    prev => ({ 
+      ...prev, 
+      activity: e.target.value 
+    }))}
+/>
+
+<button onClick={handleAddActivity}>
+  Add Activity
+</button>
+\end{lstlisting}
+\textbf{Controlled inputs with state}
+& 
+\vspace{0.2cm}
+\includegraphics[width=4.8cm,height=6.5cm,keepaspectratio]{figure-6.png}
+\newline
+\textit{Figure 6: Forms with Validation}
+\\
+\hline
+
+\textbf{Hooks} & 
+\textbf{File:} \texttt{FocusTrainer.jsx}
+\newline\newline
+\textbf{Multiple Hooks Implementation:}
+\begin{lstlisting}[language=JavaScript]
+// useState
+const [isPlaying, setIsPlaying] 
+  = useState(false);
+const [speed, setSpeed] = useState(1);
+const [score, setScore] = useState(0);
+
+// useEffect
+useEffect(() => {
+  speak('Welcome to Focus Trainer!');
+}, [speak]);
+
+useEffect(() => {
+  const unregister = registerCommand(
+    'focus-trainer', (cmd) => {
+    if (cmd.includes('slower')) {
+      handleSpeedChange('slower');
+    }
+  });
+  return unregister;
+}, [registerCommand, speed]);
+
+// useContext
+const { speak, registerCommand } 
+  = useVoice();
+
+// useRef
+const containerRef = useRef(null);
+const animationRef = useRef(null);
+const timeRef = useRef(0);
+\end{lstlisting}
+\textbf{useState, useEffect, useContext, useRef}
+& 
+\vspace{0.2cm}
+\includegraphics[width=4.8cm,height=6.5cm,keepaspectratio]{figure-7.png}
+\newline
+\textit{Figure 7: React Hooks}
+\\
+\hline
+
+\textbf{Routing} & 
+\textbf{File:} \texttt{App.jsx}
+\newline\newline
+\textbf{Page Navigation System:}
+\begin{lstlisting}[language=JavaScript]
+const App = () => {
+  const [currentPage, setCurrentPage] 
+    = useState('landing');
+
+  const pages = {
+    'landing': <LandingPage 
+      onNavigate={setCurrentPage} />,
+    'mission-hub': <MissionHub 
+      onNavigate={setCurrentPage} />,
+    'planet-matcher': <PlanetMatcher />,
+    'alien-emotions': <AlienEmotions />,
+    'space-school': <SpaceSchool />,
+    'sensory-nebula': <SensoryNebula />,
+    'focus-trainer': <FocusTrainer />,
+    'visual-timeline': <VisualTimeline />,
+    'dress-up': <DressUpStation />,
+    'stellar-gallery': <StellarGallery />,
+    'space-lab': <SpaceLab />
+  };
+
+  return (
+    <VoiceProvider 
+      onNavigate={setCurrentPage}>
+      <div className="app">
+        {pages[currentPage]}
+      </div>
+    </VoiceProvider>
+  );
+};
+\end{lstlisting}
+\textbf{State-based routing with voice nav}
+& 
+\vspace{0.2cm}
+\includegraphics[width=4.8cm,height=6.5cm,keepaspectratio]{figure-8.png}
+\newline
+\textit{Figure 8: Routing Implementation}
+\\
+\hline
+
+\end{longtable}
+
+\section{Evaluation Summary}
+
+\subsection{UI Aspects (10 Marks)}
+Space theme with consistent design, fully responsive using Tailwind CSS, smooth animations via Framer Motion, accessibility features with large touch targets, visual feedback for forms, and clear color contrast.
+
+\subsection{React JS Concepts (30 Marks)}
+All concepts implemented: Function \& Class Components, Hooks (useState, useEffect, useContext, useReducer, useMemo, useCallback, useRef), State Management (local, reducer, Context API), Complex Forms with validation, Event handlers (onChange, onSubmit, onClick), PropTypes, HOC (withSpaceTheme), Fragments, Conditional Rendering, Lists \& Keys.
+
+\subsection{Extension Level (10 Marks)}
+Advanced features: Voice navigation (Web Speech API), Performance optimization (useMemo), Clean code organization, Reusability, Form validation, State persistence (localStorage), Complex state logic (useReducer), Type safety (PropTypes), Accessibility features, Animation integration (Framer Motion).
+
+\vspace{1cm}
+
+\begin{center}
+\textbf{--- End of Document ---}
+\end{center}
+
+\end{document}
