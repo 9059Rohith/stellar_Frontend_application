@@ -2,6 +2,7 @@
 
 A neuro-inclusive web application designed specifically for children with Autism Spectrum Disorder (ASD), featuring voice navigation, background music, and 10 interactive sensory-friendly modules.
 
+live link:https://cozy-puppy-2ed405.netlify.app/
 ## 🚀 Features
 
 - **Voice Navigation**: Full Web Speech API integration for hands-free navigation
